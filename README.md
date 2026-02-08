@@ -148,11 +148,11 @@ This project demonstrates:
 
 ---
 
-### ✅ Submission Checklist
-- Terraform code ✔️  
-- Kubernetes manifests ✔️  
-- Architecture diagram ✔️  
-- Screenshots ✔️  
-- Loom explanation video ✔️  
+### Submission Checklist
+- Terraform code   
+- Kubernetes manifests 
+- Architecture diagram  
+- Screenshots 
+- Loom explanation video 
 
 
