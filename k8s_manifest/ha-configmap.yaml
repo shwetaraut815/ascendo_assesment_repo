@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: haproxy-config
+data:
+  haproxy.cfg: |
+    frontend http
+      bind *:80
+      default_backend tomcat
+
+    backend tomcat
+      server tomcat tomcat-service:80
