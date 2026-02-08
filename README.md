@@ -1,5 +1,5 @@
 # Private EKS with Internal Application (Terraform + Kubernetes)
-
+- *Shweta Pawar*
 ---
 
 ## 1. Project Summary
