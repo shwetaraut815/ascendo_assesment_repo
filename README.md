@@ -101,14 +101,58 @@ Since the application is internal, access is validated from within the cluster.
 
 ### Traffic Flow
 
----bash
-Client Pod
-↓
-HAProxy Service
-↓
-HAProxy Pod
-↓
-Tomcat Service
-↓
-Tomcat Pods (round-robin)
+Client Pod → HAProxy Service → HAProxy Pod → Tomcat Service → Tomcat Pods
+
+
+<img width="1891" height="429" alt="Screenshot 2026-02-08 000946" src="https://github.com/user-attachments/assets/57e42d66-7bdf-4608-9f25-2eff2e7e6e87" />
+
+
+This confirms:
+- Internal routing is working correctly
+- HAProxy load-balances requests
+- No public exposure is required
+
 ---
+
+## 7. Secure Access & Operations
+
+### 7.1 Admin Access
+A dedicated Admin EC2 instance in the same VPC is used to:
+- Run Terraform
+- Execute kubectl commands
+
+This avoids exposing the EKS API publicly.
+
+### 7.2 Node Access (No SSH)
+- Worker nodes are accessed using AWS Systems Manager (SSM)
+- No SSH keys
+- No port 22
+- IAM-based and fully audited access
+
+<img width="1858" height="778" alt="Screenshot 2026-02-08 000015" src="https://github.com/user-attachments/assets/671eaf5b-58df-49e1-907f-5ac91a288333" />
+
+
+<img width="1334" height="423" alt="Screenshot 2026-02-07 235644" src="https://github.com/user-attachments/assets/915879cc-6326-4017-80f9-fef18dba8d82" />
+
+---
+
+## 8. Conclusion
+
+This project demonstrates:
+- Secure private EKS architecture
+- Proper use of Terraform for infrastructure provisioning
+- Internal Kubernetes service communication
+- Clear separation of access responsibilities
+- IAM-based, audit-friendly operational access
+
+
+---
+
+### ✅ Submission Checklist
+- Terraform code ✔️  
+- Kubernetes manifests ✔️  
+- Architecture diagram ✔️  
+- Screenshots ✔️  
+- Loom explanation video ✔️  
+
+
